@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function calculateAverageUntilZero(){
+   let numeroja = 0; // This will store the sum of all entered numbers
+   let montakerta = 0; // This will count how many numbers the user entered
+   let Annettu_numero;
+   
+       while(true) {
+       Annettu_numero = parseFloat(prompt("enter number here (0 to stop):")); // 👈 This asks the user for a string and converts it to a Number
+
+        if (Annettu_numero === 0) {
+            break; // Exit the loop if the number is 0
+        }
+       numeroja += Annettu_numero; // Add the number to the total sum
+       montakerta++; // Increase the count of numbers entered
+    }
+
+     // Now that the loop is done, we'll calculate the average
+     if(montakerta >0){
+        let avarage = numeroja / montakerta; // Calculate the average
+        console.log("the avarage is: ", avarage); 
+         
+        }
+        else {
+            console.log("no numbers were entered.");
+     }
+
+    }
+
+    calculateAverageUntilZero();
+
+       </script>
+
+
+</head>
+<body>
+
+    
+
+
+
+    
+</body>
+</html>

@@ -1,0 +1,47 @@
+body {
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 121, 87, 1) 35%,
+    rgba(0, 212, 255, 1) 100%
+  );
+}
+
+div {
+  background-color: black;
+}
+
+h1 {
+  font-family: "Underdog", system-ui;
+  color: yellow;
+  font-size: 50px;
+  text-align: center;
+}
+
+p {
+  font-family: "Urbanist", sans-serif;
+  font-size: 30px;
+  color: yellow;
+}
+
+.gradient {
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 121, 87, 1) 35%,
+    rgba(0, 212, 255, 1) 100%
+  );
+}
+
+h2 {
+  color: yellow;
+  font-size: 40px;
+  text-align: center;
+  background-color: black;
+}
+
+.p2 {
+  color: yellow;
+}

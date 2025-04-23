@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Order Pancake</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="image-container">
+        <img src="pancake.jpeg" alt="Delicious pancakes" />
+        <div class="price-banner"><span id="totalPrice">5€</span></div>
+      </div>
+
+      <div class="form-container">
+        <h2>Customize Pancake</h2>
+
+        <label for="type">Select Pancake Type:</label>
+        <select id="type">
+          <option value="5">Classic - 5€</option>
+          <option value="6">Chocolate - 6€</option>
+          <option value="7">Blueberries - 7€</option>
+        </select>
+
+        <h3>Choose Topping (1€ / kpl):</h3>
+        <label><input type="checkbox" class="topping" value="1" /> Nuts</label>
+        <label
+          ><input type="checkbox" class="topping" value="1" /> Banana</label
+        >
+        <label
+          ><input type="checkbox" class="topping" value="1" /> Syrup
+        </label>
+
+        <h3>Choose Garnish :</h3>
+        <label
+          ><input type="checkbox" class="extra" value="2" /> Whipped Cream -
+          2€</label
+        >
+        <label
+          ><input type="checkbox" class="extra" value="3" /> Ice Cream -
+          3€</label
+        >
+
+        <h3>Total Price: <span id="totalPriceDisplay">5€</span></h3>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

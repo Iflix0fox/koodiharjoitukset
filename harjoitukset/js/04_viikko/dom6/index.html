@@ -1,0 +1,37 @@
+<!-- /* 
+Luo lomake, jossa on pakolliset nimi- ja sähköpostikentät.
+Kirjoita JavaScript-koodi, joka:
+- Estää lomakkeen lähetyksen, jos jompikumpi kenttä on tyhjä.
+- Näyttää virheilmoituksen, jos kenttiä on tyhjänä.
+*/ -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      .error {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="userform">
+      <label for="name">Name</label> <br />
+      <input type="text" name="" id="name" /> <br />
+      <br />
+
+      <label for="email">Email</label> <br />
+      <input type="email" name="email" id="email" /> <br />
+      <br />
+
+      <button type="submit">submit</button>
+
+      <p class="error" id="errormessege"></p>
+    </form>
+    <script src="script.js"></script>
+  </body>
+</html>

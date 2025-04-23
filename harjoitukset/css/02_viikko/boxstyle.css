@@ -1,0 +1,57 @@
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+
+}
+
+
+body {
+background-color: chartreuse
+
+}
+
+header {
+    background-color: yellow;
+    padding: 50px;
+}
+
+/*backgound määrittele tausta omiasuuksia.
+background color määrittele vain tustavärin.
+color määrittele tekstin väriä.
+*/
+
+
+main{
+    
+    padding: 10px;
+
+}
+
+div {
+background: blueviolet;
+height: 200px;
+width: 200px;
+margin: 0 10px 10px 0;
+display: inline-block;
+color:yellow;
+}
+
+
+.box1 {
+border: 5px dotted white;
+
+}
+
+.box2 {
+    border: 7px double silver;
+    background-color: brown;
+}
+
+.box3 {
+    border-style: groove;
+    border-width: 10px;
+border-color: white blue red yellow;
+
+}
+
