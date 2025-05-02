@@ -12,12 +12,16 @@ body {
 /* --- Header & nav --- */
 .header {
   /* Flexbox-määrittelyt poistettu */
+  display: flex;
+  justify-content: space-between;
   padding: 1rem 2rem;
   background: #222;
   color: #fff;
 }
 .nav {
   /* Flexbox-määrittelyt poistettu */
+  display: flex;
+  justify-content: center;
   gap: 1.5rem; /* navigaation linkkien väli */
 }
 .nav a {
@@ -28,6 +32,10 @@ body {
 /* --- Hero --- */
 .hero {
   /* Flexbox-määrittelyt poistettu */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   height: 45vh;
   background: linear-gradient(135deg, #ff6a00, #ee0979);
   color: #fff;
@@ -41,20 +49,30 @@ body {
 /* --- Ohjelmakalenteri --- */
 .calendar {
   /* Flexbox-määrittelyt poistettu */
-  gap: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 50px;
   padding: 2rem;
 }
 .day-card {
   /* Flex-määrittelyt poistettu */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   background: #f4f4f4;
-  padding: 1rem;
+  padding: 2rem 2.5rem;
+  width: 250px;
+
   border-radius: 0.5rem;
 }
+
 .day-card h2 {
   margin-bottom: 0.5rem;
 }
 .artist {
   margin: 0.25rem 0;
+  display: flex;
+
   /* Flex-määrittelyt poistettu */
 }
 .artist .time {
@@ -69,14 +87,20 @@ body {
 /* --- Lipputen kortit --- */
 .tickets {
   /* Flexbox-määrittelyt poistettu */
-  gap: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 50px;
   padding: 2rem;
 }
 .ticket-card {
   /* Flex-määrittelyt poistettu */
-  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1.5rem;
   border: 2px solid #ccc;
   border-radius: 0.5rem;
+  width: 250px;
 }
 .ticket-card.vip {
   /* Flex-määrittelyt poistettu */
@@ -96,6 +120,7 @@ body {
 /* --- Sijainti & kartta --- */
 .location {
   /* Flexbox-määrittelyt poistettu */
+
   gap: 2rem;
   padding: 2rem;
 }

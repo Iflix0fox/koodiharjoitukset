@@ -9,7 +9,7 @@
     <div class="container">
       <div class="image-container">
         <img src="pancake.jpeg" alt="Delicious pancakes" />
-        <div class="price-banner"><span id="totalPrice">5€</span></div>
+        <div class="price-banner"><span id="totalPrice">5.00€</span></div>
       </div>
 
       <div class="form-container">
@@ -29,16 +29,18 @@
           </select>
 
           <!-- Täytteet -->
-          <h3>Valitse täytteet (1€ / kpl):</h3>
-          <label
-            ><input type="checkbox" class="topping" data-price="1" /> Pähkinät
-          </label>
-          <label
-            ><input type="checkbox" class="topping" data-price="1" /> Banaani
-          </label>
-          <label
-            ><input type="checkbox" class="topping" data-price="1" /> Siirappi
-          </label>
+          <div id="Täytteet">
+            <h3>Valitse täytteet (1€ / kpl):</h3>
+            <label
+              ><input type="checkbox" class="topping" data-price="1" /> Pähkinät
+            </label>
+            <label
+              ><input type="checkbox" class="topping" data-price="1" /> Banaani
+            </label>
+            <label
+              ><input type="checkbox" class="topping" data-price="1" /> Siirappi
+            </label>
+          </div>
 
           <!-- Lisukkeet -->
           <h3>Valitse lisukkeet:</h3>
@@ -83,7 +85,7 @@
           >
 
           <!-- Kokonaishinnan näyttäminen -->
-          <h3>Kokonaishinta: <span id="totalPriceDisplay">5€</span></h3>
+          <h3>Kokonaishinta: <span id="totalPriceDisplay">5.00€</span></h3>
 
           <!-- Tarkista tilaus -nappi -->
           <button type="button" id="seeOrder">Tarkista tilauksen tiedot</button>
