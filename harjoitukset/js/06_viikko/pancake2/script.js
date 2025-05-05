@@ -45,6 +45,37 @@ document.addEventListener("DOMContentLoaded", function () {
     const selectedType = pancakeType.options[pancakeType.selectedIndex];
     let total = parseFloat(selectedType.getAttribute("data-price"));
 
+    orderButton.addEventListener("click", function () {
+      const customerName = document.getElementById("customerName").value.trim();
+      const delivery = document
+        .querySelector("input[name=delivery]:checked")
+        .parentElement.textContent.trim();
+
+      let summary =
+        "<strong>Asiaks: </strong>" + (customerName || "(ei nimeä)") + "<br>";
+
+      // let summary = `<strong>Asiaks:</strong> ${ customerName || "(ei nimeä)" } <br>`;
+
+      summary += "<strong>tyypi: </strong>" + selectedType.value + "<br>";
+
+      summary +=
+        "<strong>täytteet: </strong>" +
+        (toppings.length > 0 ? toppings.join(", ") : "Ei täytteitä") +
+        "<br>";
+
+      summary +=
+        "<strong>lisukkeet: </strong>" +
+        (extras.length > 0 ? extras.join(", ") : "Ei lisukeita") +
+        "<br>";
+
+      summary += "<strong>toimitustapa: </strong> " + delivery + "<br>";
+
+      summary +=
+        "<strong>kokonaishinta on: </strong>" + totalPriceDisplay.textContent;
+
+      summaryText.innerHTML = summary;
+    });
+
     total = total + toppings.length * 1;
     // haetaan lisukkeet listaan ja ksäitellään lista. Lisätään valittujan hinta
     let extraChoises = document.querySelectorAll(".extra");
@@ -65,14 +96,4 @@ document.addEventListener("DOMContentLoaded", function () {
     totalPriceBanner.textContent = formatedTotal;
     totalPriceDisplay.textContent = formatedTotal;
   }
-  orderButton.addEventListener("click", function () {
-    const customerName = document.getElementById("customerName").value.trim();
-
-    let summary = `<strong>Asiaks:</strong> ${
-      customerName || "(ei nimeä)"
-    }<br>`;
-    summary += "Täytteet:" + selectedType + "<br>;";
-
-    summaryText.innerHTML = summary;
-  });
 });
