@@ -8,31 +8,86 @@
 
     <!-- icon pictrue -->
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
 
     <!-- ###################################### -->
   </head>
   <body>
-    <header class="myHeader">
-      <div id="heroContent">
-        <h1>Tervetuloa portfoliooni</h1>
-        <p></p>
+    <div>
+      <header class="myHeader">
+        <div id="heroContent">
+          <h1 id="myH1">Tervetuloa portfoliooni</h1>
+          <p></p>
+        </div>
+        <nav class="mainNav">
+          <ul id="navLinks">
+            <li><a href="#about">Minusta</a></li>
+            <li><a href="#projects">Projektit</a></li>
+            <li><a href="gallery.html">Galleria</a></li>
+            <li><a href="#contact">Yhteys</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <div class="flip-container">
+        <div class="flipper">
+          <div class="front">
+            <img src="me.png" alt="Front image" />
+          </div>
+          <div class="back">
+            <img src="realface.png" alt="Back image" />
+          </div>
+        </div>
       </div>
-      <nav class="mainNav">
-        <ul id="navLinks">
-          <li><a href="#about">Minusta</a></li>
-          <li><a href="#projects">Projektit</a></li>
-          <li><a href="gallery.html">Galleria</a></li>
-          <li><a href="#contact">Yhteys</a></li>
-        </ul>
-      </nav>
-    </header>
 
-    <img src="images/photo.jpg" alt="A sample image" />
+      <h1 id="bodyH1">Tervetuloa omalle staattiselle verkkosivulleni</h1>
 
-    <a href="about.html">About</a>
+      <div class="backGround">
+        <p id="bodyP1">
+          Tämä on yksinkertainen staattisen HTML-projektin rakenne.
+        </p>
 
-    <h1 id="bodyH1">Tervetuloa omalle staattiselle verkkosivulleni</h1>
-    <p>Tämä on yksinkertainen staattisen HTML-projektin rakenne.</p>
-    <script src="script.js"></script>
+        <p id="bodyP2">
+          Tämä on yksinkertainen staattisen HTML-projektin rakenne. Lorem ipsum
+          dolor sit amet consectetur adipisicing elit. A doloribus omnis nihil
+          veritatis beatae, fugit corrupti delectus quisquam adipisci nemo culpa
+          non dolorum! Quisquam similique vitae alias optio, distinctio
+          molestiae!
+        </p>
+
+        <p id="bodyP3">
+          Tämä on yksinkertainen staattisen HTML-projektin rakenne. Lorem ipsum
+          dolor sit amet consectetur adipisicing elit. A doloribus omnis nihil
+          veritatis beatae, fugit corrupti delectus quisquam adipisci nemo culpa
+          non dolorum! Quisquam similique vitae alias optio, distinctio
+          molestiae!
+        </p>
+      </div>
+
+      <footer class="footer1">
+        <div class="iconSpan">
+          <a
+            href="https://www.instagram.com/ah.4al?igsh=OWJpcWhiejZ1aXU%3D&utm_source=qr"
+            target="_blank"
+            ><i id="instagram" class="fa-brands fa-instagram"></i></a
+          ><a
+            href="https://discordapp.com/users/701776677386059826."
+            target="_blank"
+            ><i id="discordapp" class="fa-brands fa-discord"></i></a
+          ><a
+            href="https://www.linkedin.com/in/ahmad-al-azzawi-74bb8b357/"
+            target="_blank"
+            ><i class="fa-brands fa-linkedin"></i
+          ></a>
+        </div>
+
+        <p id="bodyP">ahmadalazzawi5080@gmail.com</p>
+      </footer>
+
+      <script src="script.js"></script>
+    </div>
   </body>
 </html>

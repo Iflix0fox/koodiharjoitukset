@@ -2,6 +2,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 /* Style the body with a clean font and background */
@@ -9,7 +10,8 @@ body {
   font-family: Arial, sans-serif; /* Set font */
   margin: 0;
   padding: 0;
-  background-color: #f4f4f9; /* Light background */
+  /* background-color: rgb(52, 187, 52); Light background */
+  background-color: rgb(16, 223, 242);
   color: #333; /* Dark text for readability */
 }
 
@@ -21,7 +23,7 @@ body {
   display: flex; /* Use Flexbox for layout */
   justify-content: flex-end; /* Push nav to the right */
   align-items: center; /* Vertically center content */
-  background-color: blue; /* Blue background */
+  background-color: green; /* Blue background */
   height: 100px; /* Set header height */
   padding: 0 20px; /* Space left and right */
 }
@@ -30,7 +32,9 @@ body {
 #heroContent {
   position: absolute; /* Position it independently of flex layout */
   right: 75%; /* Move it halfway from the left */ /* Shift it back by 50% of its own width to truly center */
-  color: orange; /* Orange title text */
+  color: white;
+  -webkit-text-stroke: 0.5px rgb(52, 187, 52);
+  margin-bottom: 5px;
 }
 
 /* Style the navigation bar */
@@ -49,7 +53,7 @@ nav ul {
   list-style: none; /* Remove bullets from list */
   display: flex; /* Display list items in a row */
   gap: 20px; /* Add spacing between links */
-  color: red; /* (Note: won't affect actual link text color) */
+  /* (Note: won't affect actual link text color) */
 }
 
 /* Style individual links */
@@ -60,17 +64,176 @@ nav ul li a {
 
 /* Change link color on hover */
 nav ul li a:hover {
-  color: red; /* Hover color */
+  color: rgb(52, 187, 52); /* Hover color */
   cursor: pointer; /* Pointer cursor */
 }
 
-/* Empty rule for future styling or leftover code */
-#navLinks {
+#bodyH1 {
+  color: white; /* Red text color (overwritten by `header h1`) */
+  text-align: center; /* Center the text */
+  margin-top: 20px; /* Top space */
+  -webkit-text-stroke: 2px green;
+  margin-bottom: 5px;
+}
+
+.backGround p {
+  /* offset-x | offset-y | blur-radius | color */
+  text-shadow: 0px 0px 10px black;
+  color: white;
+}
+
+.flip-container {
+  perspective: 1000px;
+  width: 200px;
+  height: 200px;
+  margin: 40px auto;
+}
+
+.flipper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+  transform: rotateY(0deg);
+  border: solid black;
+  border-radius: 30%;
+  overflow: hidden;
+}
+
+.flip-container:hover .flipper {
+  transform: rotateY(180deg);
+}
+
+.front,
+.back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.front img,
+.back img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.front {
+  z-index: 2;
+  transform: rotateY(0deg);
+}
+
+.back {
+  z-index: 1;
+  transform: rotateY(180deg);
+}
+.back {
+  z-index: 1;
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.backGround {
+  position: relative;
+  margin: 0 2em;
+  border: 5px solid black;
+  border-radius: 2%;
+  overflow: hidden;
+  background-image: url(backgroundPic.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 700px;
+}
+#backGroundPic {
+  display: none;
+  width: 100%;
+}
+
+#bodyP1 {
+  display: inline-block;
+  padding: 5px;
+  margin-top: 5px;
+}
+
+#bodyP2 {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 5px;
+  max-width: 15em;
+  border-radius: 10px;
+}
+
+#bodyP3 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 5px;
+  max-width: 15em;
+  border-radius: 10px;
 }
 
 /* Global h1 style (can affect all h1s not in header) */
-#bodyH1 {
-  color: red; /* Red text color (overwritten by `header h1`) */
-  text-align: center; /* Center the text */
-  margin-top: 20px; /* Top space */
+.iconSpan {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.iconSpan i {
+  font-size: 35px;
+  color: black;
+}
+
+#instagram {
+  color: black;
+}
+
+.discordapp {
+  color: black;
+}
+
+.footer1 {
+  color: black;
+  background-color: rgb(3, 112, 54);
+  padding: 2em;
+  border: 2px solid black;
+  margin-top: 40px;
+  text-align: center;
+}
+
+/* ==== Fix for 3D flip rendering in some browsers like Chrome ==== */
+.flip-container {
+  transform-style: preserve-3d;
+}
+
+.flip-container,
+.flipper,
+.front,
+.back {
+  will-change: transform;
+}
+
+.front,
+.back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
