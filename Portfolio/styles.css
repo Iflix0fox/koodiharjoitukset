@@ -1,33 +1,76 @@
+/* Reset margins and padding for all elements to ensure consistency */
 * {
   margin: 0;
   padding: 0;
 }
+
+/* Style the body with a clean font and background */
 body {
-  font-family: Arial, sans-serif;
+  font-family: Arial, sans-serif; /* Set font */
   margin: 0;
   padding: 0;
-  background-color: #f4f4f9;
-  color: #333;
+  background-color: #f4f4f9; /* Light background */
+  color: #333; /* Dark text for readability */
 }
 
-#myHeader {
-  color: red;
+/* ====== HEADER SECTION ====== */
+
+/* Style the header container */
+.myHeader {
+  position: relative; /* Needed to absolutely position #heroContent inside */
+  display: flex; /* Use Flexbox for layout */
+  justify-content: flex-end; /* Push nav to the right */
+  align-items: center; /* Vertically center content */
+  background-color: blue; /* Blue background */
+  height: 100px; /* Set header height */
+  padding: 0 20px; /* Space left and right */
+}
+
+/* Center the hero content (h1) exactly in the middle of the header */
+#heroContent {
+  position: absolute; /* Position it independently of flex layout */
+  right: 75%; /* Move it halfway from the left */ /* Shift it back by 50% of its own width to truly center */
+  color: orange; /* Orange title text */
+}
+
+/* Style the navigation bar */
+.mainNav {
+  display: flex; /* Flexbox layout for nav links */
+  align-items: center; /* Vertically align nav items */
+}
+
+/* Unused: This would be if h1 was inside <nav>, but it’s not */
+nav h1 {
   display: flex;
-  justify-content: center;
-  background-color: blue;
 }
 
-#mainNav {
-  display: flex;
-  justify-content: flex-start;
-  background-color: black;
+/* Style the navigation links list */
+nav ul {
+  list-style: none; /* Remove bullets from list */
+  display: flex; /* Display list items in a row */
+  gap: 20px; /* Add spacing between links */
+  color: red; /* (Note: won't affect actual link text color) */
 }
 
+/* Style individual links */
+nav ul li a {
+  color: white; /* White text color */
+  text-decoration: none; /* Remove underline */
+}
+
+/* Change link color on hover */
+nav ul li a:hover {
+  color: red; /* Hover color */
+  cursor: pointer; /* Pointer cursor */
+}
+
+/* Empty rule for future styling or leftover code */
 #navLinks {
-  background-color: green;
 }
-h1 {
-  color: #0056b3;
-  text-align: center;
-  margin-top: 20px;
+
+/* Global h1 style (can affect all h1s not in header) */
+#bodyH1 {
+  color: red; /* Red text color (overwritten by `header h1`) */
+  text-align: center; /* Center the text */
+  margin-top: 20px; /* Top space */
 }
