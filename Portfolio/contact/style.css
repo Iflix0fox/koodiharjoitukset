@@ -1,0 +1,135 @@
+/* Make sure page takes full height */
+html,
+body {
+  font-family: Arial, sans-serif;
+  height: 100%;
+  margin: 0;
+}
+
+/* Flex container for the whole page */
+.pageWrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header styles */
+.myHeader {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: rgb(80, 79, 79);
+  height: 100px;
+  padding: 0 20px;
+}
+
+#heroContent {
+  position: absolute;
+  right: 75%;
+  color: white;
+  -webkit-text-stroke: 0.5px rgb(52, 187, 52);
+  margin-bottom: 5px;
+  font-size: 15px;
+}
+h1 a {
+  cursor: pointer;
+}
+
+h1 a:visited,
+h1 a:link {
+  color: white;
+  text-decoration: none;
+}
+
+.mainNav {
+  color: white;
+  -webkit-text-stroke: 0.5px rgb(52, 187, 52);
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+nav ul li a:visited,
+nav ul li a:link {
+  color: white;
+  -webkit-text-stroke: 0.5px rgb(52, 187, 52);
+}
+
+nav ul li a:hover {
+  color: rgb(52, 187, 52);
+  cursor: pointer;
+}
+
+/* Main content area (flex: 1 makes it grow to fill space) */
+.pDiv {
+  border-radius: 30px;
+  border: solid 3px rgb(50, 48, 48);
+  margin: 10px;
+  padding: 10px;
+  background-color: rgb(80, 79, 79);
+  color: #333;
+  flex: auto;
+  text-align: center;
+  padding: 100px;
+}
+
+.pDiv p {
+  font-size: 35px;
+}
+p {
+  color: white;
+  -webkit-text-stroke: 0.2px rgb(52, 187, 52);
+  font-size: 20px;
+}
+
+body {
+  background-color: gray;
+}
+
+.iconSpan {
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+  color: black;
+}
+
+.iconSpan i {
+  font-size: 35px;
+  color: black;
+}
+
+#instagram {
+  color: black;
+}
+
+.discordapp {
+  color: black;
+}
+
+#email {
+  color: black;
+}
+
+.footer1 {
+  margin-top: 50px;
+  padding: 1%;
+  color: black;
+  background-color: gray;
+  border: 2px solid black;
+  text-align: center;
+}

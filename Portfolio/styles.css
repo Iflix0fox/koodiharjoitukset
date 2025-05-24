@@ -10,8 +10,10 @@ body {
   font-family: Arial, sans-serif; /* Set font */
   margin: 0;
   padding: 0;
-  /* background-color: rgb(52, 187, 52); Light background */
-  background-color: rgb(16, 223, 242);
+  /* background-color: rgb(52, 187, 52); */
+  /* background-color: rgb(6, 54, 2); */
+  /* background-color: rgb(86, 168, 96); */
+  background-color: rgb(80, 79, 79);
   color: #333; /* Dark text for readability */
 }
 
@@ -23,7 +25,7 @@ body {
   display: flex; /* Use Flexbox for layout */
   justify-content: flex-end; /* Push nav to the right */
   align-items: center; /* Vertically center content */
-  background-color: green; /* Blue background */
+  background-color: gray; /* Blue background */
   height: 100px; /* Set header height */
   padding: 0 20px; /* Space left and right */
 }
@@ -35,10 +37,20 @@ body {
   color: white;
   -webkit-text-stroke: 0.5px rgb(52, 187, 52);
   margin-bottom: 5px;
+  font-size: 15px;
+}
+
+h1 a:visited,
+h1 a:link {
+  color: white;
+  text-decoration: none;
 }
 
 /* Style the navigation bar */
 .mainNav {
+  color: white;
+  -webkit-text-stroke: 0.5px rgb(52, 187, 52);
+  font-size: 20px;
   display: flex; /* Flexbox layout for nav links */
   align-items: center; /* Vertically align nav items */
 }
@@ -62,6 +74,16 @@ nav ul li a {
   text-decoration: none; /* Remove underline */
 }
 
+nav ul li a:visited {
+  color: white;
+  -webkit-text-stroke: 0.5px rgb(52, 187, 52);
+}
+
+nav ul li a:link {
+  color: white;
+  -webkit-text-stroke: 0.5px rgb(52, 187, 52);
+}
+
 /* Change link color on hover */
 nav ul li a:hover {
   color: rgb(52, 187, 52); /* Hover color */
@@ -70,9 +92,9 @@ nav ul li a:hover {
 
 #bodyH1 {
   color: white; /* Red text color (overwritten by `header h1`) */
+  -webkit-text-stroke: 0.5px rgb(52, 187, 52);
   text-align: center; /* Center the text */
   margin-top: 20px; /* Top space */
-  -webkit-text-stroke: 2px green;
   margin-bottom: 5px;
 }
 
@@ -82,6 +104,7 @@ nav ul li a:hover {
   color: white;
 }
 
+/* Parent container with perspective */
 .flip-container {
   perspective: 1000px;
   width: 200px;
@@ -89,22 +112,32 @@ nav ul li a:hover {
   margin: 40px auto;
 }
 
+.flip-wrapper {
+  border-radius: 30%; /* rounded corners here */
+  overflow: hidden; /* clip children */
+  width: 200px;
+  height: 200px;
+  border: solid 3px rgb(50, 48, 48);
+  background-color: black;
+}
+
+/* Flipper that holds both front and back */
 .flipper {
   position: relative;
   width: 100%;
   height: 100%;
   transform-style: preserve-3d;
   transition: transform 0.6s;
-  transform: rotateY(0deg);
-  border: solid black;
-  border-radius: 30%;
-  overflow: hidden;
+  border-radius: 30%; /* same border-radius */
+  border-radius: inherit; /* inherit border-radius for consistency */
 }
 
+/* Flip effect on hover */
 .flip-container:hover .flipper {
   transform: rotateY(180deg);
 }
 
+/* Front and back faces */
 .front,
 .back {
   position: absolute;
@@ -113,9 +146,8 @@ nav ul li a:hover {
   backface-visibility: hidden;
   top: 0;
   left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  border-radius: 30%;
+  border-radius: inherit; /* keep rounded corners */
 }
 
 .front img,
@@ -125,33 +157,15 @@ nav ul li a:hover {
   object-fit: cover;
 }
 
-.front {
-  z-index: 2;
-  transform: rotateY(0deg);
-}
-
+/* Back face rotated 180 degrees */
 .back {
-  z-index: 1;
   transform: rotateY(180deg);
-}
-.back {
-  z-index: 1;
-  transform: rotateY(180deg);
-  backface-visibility: hidden;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .backGround {
   position: relative;
   margin: 0 2em;
-  border: 5px solid black;
+  border: solid 3px rgb(50, 48, 48);
   border-radius: 2%;
   overflow: hidden;
   background-image: url(backgroundPic.png);
@@ -212,7 +226,7 @@ nav ul li a:hover {
 
 .footer1 {
   color: black;
-  background-color: rgb(3, 112, 54);
+  background-color: gray;
   padding: 2em;
   border: 2px solid black;
   margin-top: 40px;
