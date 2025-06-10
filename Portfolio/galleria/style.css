@@ -24,13 +24,18 @@ body {
   padding: 0 20px;
 }
 
-#heroContent {
+.heroContent {
+  right: 70%;
   position: absolute;
-  right: 75%;
+  margin-bottom: 5px;
+  font-size: 20px;
+  font-weight: 200;
+  height: auto;
   color: white;
   -webkit-text-stroke: 0.5px rgb(52, 187, 52);
-  margin-bottom: 5px;
-  font-size: 15px;
+}
+.heroContent .myH1 {
+  font-size: 70px;
 }
 
 h1 a {
@@ -75,6 +80,40 @@ nav ul li a:hover {
 
 body {
   background-color: gray;
+}
+
+.content {
+  flex: 1;
+}
+
+.galleria {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.pics {
+  background-color: white;
+  padding: 10px;
+  border: 5px solid rgb(196, 237, 196);
+  margin-top: 20px;
+  border-radius: 20px;
+}
+.pics img {
+  width: 500px;
+  height: auto;
+  border-radius: 20px;
+}
+
+.pics a:visited,
+a:link {
+  display: block;
+  margin-top: 10px;
+  font-size: 20px;
+  text-decoration: none;
+  color: green;
+  width: 100px;
 }
 
 .iconSpan {

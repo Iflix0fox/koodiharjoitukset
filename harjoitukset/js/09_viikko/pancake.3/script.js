@@ -138,41 +138,4 @@ document.addEventListener("DOMContentLoaded", function () {
       newIngredient.value = "";
     }
   });
-
-  let seconds = 0;
-  let timeInterval = null;
-
-  const timeDisplay = document.getElementById("timeDisplay");
-  const startBtn = document.getElementById("start");
-  const pauseBtn = document.getElementById("pause");
-  const resetBtn = document.getElementById("reset");
-
-  function updateDisplay() {
-    const mins = String(Math.floor(seconds / 60)).padStart(2, "0");
-    const secs = String(seconds % 60).padStart(2, "0");
-    timeDisplay.textContent = `${mins}:${secs}`;
-  }
-
-  startBtn.addEventListener("click", () => {
-    if (!timeInterval) {
-      timeInterval = setInterval(() => {
-        seconds++;
-        updateDisplay();
-      }, 1000);
-    }
-  });
-
-  pauseBtn.addEventListener("click", () => {
-    clearInterval(timeInterval);
-    timeInterval = null;
-  });
-
-  resetBtn.addEventListener("click", () => {
-    clearInterval(timeInterval);
-    timeInterval = null;
-    seconds = 0;
-    updateDisplay();
-  });
-
-  updateDisplay();
 });
