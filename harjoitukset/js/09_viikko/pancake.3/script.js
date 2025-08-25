@@ -8,17 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let toppings = [];
   let extras = [];
 
-  form.addEventListener("change", function (event) {
-    const target = event.target;
-    if (target.classList.contains("topping")) {
-      handleToppings(target);
-    } else if (target.classList.contains("extra")) {
-      handleExtras(target);
-    }
-
-    updatePrice();
-  });
-
+  // Update toppings and extras lists
   function handleToppings(checkbox) {
     const toppingName = checkbox.parentElement.textContent.trim();
     if (checkbox.checked) {
@@ -26,101 +16,102 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       toppings = toppings.filter((topping) => topping !== toppingName);
     }
-
-    console.log("täytteet", toppings);
   }
 
   function handleExtras(checkbox) {
-    const exstraName = checkbox.parentElement.textContent.trim();
+    const extraName = checkbox.parentElement.textContent.trim();
     if (checkbox.checked) {
-      extras.push(exstraName);
+      extras.push(extraName);
     } else {
-      extras = extras.filter((extras) => extras !== exstraName);
+      extras = extras.filter((extra) => extra !== extraName);
     }
-    console.log("exstars", extras);
   }
 
+  // Update price calculation
   function updatePrice() {
     const pancakeType = document.getElementById("type");
     const selectedType = pancakeType.options[pancakeType.selectedIndex];
     let total = parseFloat(selectedType.getAttribute("data-price"));
 
-    orderButton.addEventListener("click", function () {
-      const customerName = document.getElementById("customerName").value.trim();
-      const delivery = document
-        .querySelector("input[name=delivery]:checked")
-        .parentElement.textContent.trim();
+    // add toppings
+    total += toppings.length * 1;
 
-      let summary =
-        "<strong>Asiaks: </strong>" + (customerName || "(ei nimeä)") + "<br>";
-
-      // let summary = `<strong>Asiaks:</strong> ${ customerName || "(ei nimeä)" } <br>`;
-
-      summary += "<strong>tyypi: </strong>" + selectedType.value + "<br>";
-
-      summary +=
-        "<strong>täytteet: </strong>" +
-        (toppings.length > 0 ? toppings.join(", ") : "Ei täytteitä") +
-        "<br>";
-
-      summary +=
-        "<strong>lisukkeet: </strong>" +
-        (extras.length > 0 ? extras.join(", ") : "Ei lisukeita") +
-        "<br>";
-
-      summary += "<strong>toimitustapa: </strong> " + delivery + "<br>";
-
-      summary +=
-        "<strong>kokonaishinta on: </strong>" + totalPriceDisplay.textContent;
-
-      summaryText.innerHTML = summary;
-
-      const order = {
-        id: Date.now(),
-        costumerName: customerName || "(ei nimeä)",
-        selectPancake: selectedType.value,
-        toppings: [...toppings],
-        extars: [...extras],
-        deliveryMethod: delivery,
-        totalPrice: parseFloat(totalPriceDisplay.textContent),
-        status: "waiting",
-      };
-
-      const orders = JSON.parse(localStorage.getItem("orders")) || [];
-
-      orders.push(order);
-
-      localStorage.setItem("orders", JSON.stringify(orders));
-
-      const MessegeEL = document.getElementById("orderMessage");
-      MessegeEL.textContent = "Order saved!";
-
-      setTimeout(() => {
-        MessegeEL.textContent = "";
-      }, 3000);
-    });
-
-    total = total + toppings.length * 1;
-    // haetaan lisukkeet listaan ja ksäitellään lista. Lisätään valittujan hinta
-    let extraChoises = document.querySelectorAll(".extra");
-    extraChoises.forEach((checkbox) => {
-      {
-        if (checkbox.checked) {
-          total = total + parseFloat(checkbox.getAttribute("data-price"));
-        }
+    // add extras
+    document.querySelectorAll(".extra").forEach((checkbox) => {
+      if (checkbox.checked) {
+        total += parseFloat(checkbox.getAttribute("data-price"));
       }
     });
 
-    // haetaan klujetuksen arvo ja lisätään hinta (hinta voi olla nolla)
-    let delivery = document.querySelector("input[name='delivery']:checked");
+    // add delivery cost
+    const delivery = document.querySelector("input[name='delivery']:checked");
     total += parseFloat(delivery.getAttribute("data-price"));
 
-    // motoillaan kokonaishinta desimaalisksi
-    let formatedTotal = total.toFixed(2) + " €";
-    totalPriceBanner.textContent = formatedTotal;
-    totalPriceDisplay.textContent = formatedTotal;
+    // format price
+    const formattedTotal = total.toFixed(2);
+    totalPriceBanner.textContent = formattedTotal + " €";
+    totalPriceDisplay.textContent = formattedTotal + " €";
   }
 
+  // Listen to changes in form
+  form.addEventListener("change", function (event) {
+    const target = event.target;
+    if (target.classList.contains("topping")) {
+      handleToppings(target);
+    } else if (target.classList.contains("extra")) {
+      handleExtras(target);
+    }
+    updatePrice();
+  });
+
+  // Order button click
+  orderButton.addEventListener("click", function () {
+    const customerName = document.getElementById("customerName").value.trim();
+    const pancakeType = document.getElementById("type");
+    const selectedType = pancakeType.options[pancakeType.selectedIndex];
+    const delivery = document
+      .querySelector("input[name=delivery]:checked")
+      .parentElement.textContent.trim();
+
+    // Build summary
+    let summary = `<strong>Asiakas:</strong> ${
+      customerName || "(ei nimeä)"
+    }<br>`;
+    summary += `<strong>Tyyppi:</strong> ${selectedType.value}<br>`;
+    summary += `<strong>Täytteet:</strong> ${
+      toppings.length > 0 ? toppings.join(", ") : "Ei täytteitä"
+    }<br>`;
+    summary += `<strong>Lisukkeet:</strong> ${
+      extras.length > 0 ? extras.join(", ") : "Ei lisukkeita"
+    }<br>`;
+    summary += `<strong>Toimitustapa:</strong> ${delivery}<br>`;
+    summary += `<strong>Kokonaishinta:</strong> ${totalPriceDisplay.textContent}`;
+
+    summaryText.innerHTML = summary;
+
+    // Save order to localStorage
+    const order = {
+      id: Date.now(),
+      customerName: customerName || "(ei nimeä)", // fixed spelling
+      selectedPancake: selectedType.value, // fixed name
+      toppings: [...toppings],
+      extras: [...extras], // fixed spelling
+      deliveryMethod: delivery,
+      totalPrice: parseFloat(totalPriceDisplay.textContent),
+      status: "waiting",
+    };
+
+    const orders = JSON.parse(localStorage.getItem("orders")) || [];
+    orders.push(order);
+    localStorage.setItem("orders", JSON.stringify(orders));
+
+    // Success message
+    const messageEl = document.getElementById("orderMessage");
+    messageEl.textContent = "Order saved!";
+    setTimeout(() => (messageEl.textContent = ""), 3000);
+  });
+
+  // Ingredients add/remove
   const ingredientList = document.getElementById("ingredientList");
   const newIngredient = document.getElementById("newIngredient");
   const addIngredientBtn = document.getElementById("addIngredient");
@@ -130,12 +121,12 @@ document.addEventListener("DOMContentLoaded", function () {
     if (ingredient) {
       const li = document.createElement("li");
       li.textContent = ingredient;
-
-      // Make it removable when clicked
       li.addEventListener("click", () => li.remove());
-
       ingredientList.appendChild(li);
       newIngredient.value = "";
     }
   });
+
+  // Initial price update
+  updatePrice();
 });
